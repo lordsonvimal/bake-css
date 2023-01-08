@@ -1,9 +1,0 @@
-// Add margin here
-
-@mixin set-margin($style, $property, $spaces) {
-  @each $key, $space in $spaces {
-    .#{$style}#{$space} {
-      #{$property}: #{$space}px;
-    }
-  }
-}

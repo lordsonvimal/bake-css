@@ -10,4 +10,19 @@ html * {
 }
 
 // Margins
-@include styles.set-margin("ml", "margin-left", ("0": 0, "1": 4));
+@include styles.set_space("ml", "margin-left", utils.get_spaces());
+@include styles.set_space("mr", "margin-right", utils.get_spaces());
+@include styles.set_space("mt", "margin-top", utils.get_spaces());
+@include styles.set_space("mt", "margin-bottom", utils.get_spaces());
+@include styles.set_space("mi", "margin-inline", utils.get_spaces());
+
+// Paddings
+@include styles.set_space("pl", "padding-left", utils.get_spaces());
+@include styles.set_space("pr", "padding-right", utils.get_spaces());
+@include styles.set_space("pt", "padding-top", utils.get_spaces());
+@include styles.set_space("pt", "padding-bottom", utils.get_spaces());
+@include styles.set_space("pi", "padding-inline", utils.get_spaces());
+
+// flex
+
+// grid

@@ -1,0 +1,7 @@
+@mixin set_space($style, $property, $spaces) {
+  @each $key, $space in $spaces {
+    .#{$style}#{$key} {
+      #{$property}: #{$space}px;
+    }
+  }
+}
