@@ -8,3 +8,6 @@ html * {
   margin: 0;
   padding: 0;
 }
+
+// Margins
+@include styles.set-margin("ml", "margin-left", ("0": 0, "1": 4));
