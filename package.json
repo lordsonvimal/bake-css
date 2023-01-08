@@ -4,6 +4,7 @@
   "description": "A halfcooked scss library for css utilities",
   "main": "index.js",
   "scripts": {
+    "dev": "sass --watch src/input.scss dist/output.scss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["bake"],

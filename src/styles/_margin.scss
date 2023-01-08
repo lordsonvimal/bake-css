@@ -1,0 +1,11 @@
+// Add margin here
+
+@mixin set-margin($style, $property, $spaces) {
+  @each $key, $space in $spaces {
+    .#{$style}#{$space} {
+      #{$property}: $space;
+    }
+  }
+}
+
+@include set-margin("ml", "margin-left", ("0": 0, "1": 4));
