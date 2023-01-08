@@ -1,11 +1,11 @@
 @use "sass:map";
 
 $multiplier: 4;
-$count: 10;
+$count: 7;
 
 @function get_spaces() {
   $spaces: ();
-  @for $i from 0 to $count {
+  @for $i from 0 to $count + 1 {
     $new_space: ($i: $i * $multiplier);
     $spaces: map.merge($spaces, $new_space);
   }
