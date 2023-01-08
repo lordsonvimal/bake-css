@@ -1,0 +1,15 @@
+{
+  "name": "bake-scss",
+  "version": "1.0.0",
+  "description": "A halfcooked scss library for css utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["bake"],
+  "author": "Lordson Vimal",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.57.1"
+  }
+}
