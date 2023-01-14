@@ -20,24 +20,38 @@ $count: 7;
   @return $spaces;
 }
 
+@function get_margin_padding_values($spaces) {
+  $spaces: map.merge($spaces, ("a": "auto"));
+  $spaces: map.merge($spaces, ("u": "unset"));
+  @return $spaces;
+}
+
 @mixin set_space($style, $property, $spaces) {
   @each $key, $space in $spaces {
     .#{$style}#{$key} {
       #{$property}: #{$space}px;
     }
   }
+  .#{$style}u {
+    #{$property}: unset;
+  }
+  .#{$style}a {
+    #{$property}: auto;
+  }
 }
 
+$spaces: get_spaces();
+
 // Margins
-@include set_space("ml", "margin-left", get_spaces());
-@include set_space("mr", "margin-right", get_spaces());
-@include set_space("mt", "margin-top", get_spaces());
-@include set_space("mt", "margin-bottom", get_spaces());
-@include set_space("mi", "margin-inline", get_spaces());
+@include set_space("ml", "margin-left", $spaces);
+@include set_space("mr", "margin-right", $spaces);
+@include set_space("mt", "margin-top", $spaces);
+@include set_space("mt", "margin-bottom", $spaces);
+@include set_space("mi", "margin-inline", $spaces);
 
 // Paddings
-@include set_space("pl", "padding-left", get_spaces());
-@include set_space("pr", "padding-right", get_spaces());
-@include set_space("pt", "padding-top", get_spaces());
-@include set_space("pt", "padding-bottom", get_spaces());
-@include set_space("pi", "padding-inline", get_spaces());
+@include set_space("pl", "padding-left", $spaces);
+@include set_space("pr", "padding-right", $spaces);
+@include set_space("pt", "padding-top", $spaces);
+@include set_space("pt", "padding-bottom", $spaces);
+@include set_space("pi", "padding-inline", $spaces);
