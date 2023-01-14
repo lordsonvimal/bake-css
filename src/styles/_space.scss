@@ -20,10 +20,16 @@ $count: 7;
   @return $spaces;
 }
 
-@function get_margin_padding_values($spaces) {
-  $spaces: map.merge($spaces, ("a": "auto"));
-  $spaces: map.merge($spaces, ("u": "unset"));
-  @return $spaces;
+@mixin unset($style, $property) {
+  .#{$style}u {
+    #{$property}: unset;
+  }
+}
+
+@mixin auto($style, $property) {
+  .#{$style}a {
+    #{$property}: auto;
+  }
 }
 
 @mixin set_space($style, $property, $spaces) {
@@ -32,12 +38,8 @@ $count: 7;
       #{$property}: #{$space}px;
     }
   }
-  .#{$style}u {
-    #{$property}: unset;
-  }
-  .#{$style}a {
-    #{$property}: auto;
-  }
+  @include unset($style, $property);
+  @include auto($style, $property);
 }
 
 $spaces: get_spaces();
