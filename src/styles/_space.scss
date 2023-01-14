@@ -6,6 +6,19 @@
 // Root font size (px) - It is the root! Why bother with relative units? Relative to what??
 // Line height (em or rem) - Because it needs to be relative to the font size. Unless you want to set a vertical rhythm and such.
 // https://dev.to/theodorusclarence/back-to-basic-should-we-use-rem-em-or-pixel-1hd0
+@use "sass:map";
+
+$multiplier: 4;
+$count: 7;
+
+@function get_spaces() {
+  $spaces: ();
+  @for $i from 0 to $count + 1 {
+    $new_space: ($i: $i * $multiplier);
+    $spaces: map.merge($spaces, $new_space);
+  }
+  @return $spaces;
+}
 
 @mixin set_space($style, $property, $spaces) {
   @each $key, $space in $spaces {
@@ -14,3 +27,17 @@
     }
   }
 }
+
+// Margins
+@include set_space("ml", "margin-left", get_spaces());
+@include set_space("mr", "margin-right", get_spaces());
+@include set_space("mt", "margin-top", get_spaces());
+@include set_space("mt", "margin-bottom", get_spaces());
+@include set_space("mi", "margin-inline", get_spaces());
+
+// Paddings
+@include set_space("pl", "padding-left", get_spaces());
+@include set_space("pr", "padding-right", get_spaces());
+@include set_space("pt", "padding-top", get_spaces());
+@include set_space("pt", "padding-bottom", get_spaces());
+@include set_space("pi", "padding-inline", get_spaces());
