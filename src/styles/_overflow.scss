@@ -1,0 +1,27 @@
+// Standardize overflow, overflow-x, overflow-y;
+
+@mixin set_overflow($style, $property) {
+  .#{$style}a {
+    #{$property}: auto;
+  }
+
+  .#{$style}s {
+    #{$property}: scroll;
+  }
+
+  .#{$style}h {
+    #{$property}: hidden;
+  }
+
+  .#{$style}v {
+    #{$property}: visible;
+  }
+
+  .#{$style}u {
+    #{$property}: unset;
+  }
+}
+
+@include set_overflow("o", "overflow");
+@include set_overflow("ox", "overflow-x");
+@include set_overflow("oy", "overflow-y");

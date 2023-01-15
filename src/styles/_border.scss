@@ -1,0 +1,18 @@
+// Standardize border, border-radius;
+
+$border-radius: (
+  "0": "0",
+  "3": "3px",
+  "5": "5px",
+  "50p": "50%"
+);
+
+@mixin set_border_radius($style, $property, $radius_values) {
+  @each $key, $radius in $radius_values {
+    .#{$style}#{$key} {
+      #{$property}: #{$radius};
+    }
+  }
+}
+
+@include set_border_radius("br", "border-radius", $border-radius);
