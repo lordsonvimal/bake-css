@@ -1,0 +1,26 @@
+// Standardize widths
+
+$widths: (
+  "a": "auto",
+  "mc": "min-content",
+  "Mc": "max-content",
+  "50p": "50%"
+);
+
+$width_properties: (
+  "Mw": "max-width",
+  "mw": "min-width",
+  "w": "width"
+);
+
+@mixin set_width() {
+  @each $style, $property in $width_properties {
+    @each $key, $width in $widths {
+      .#{$style}#{$key} {
+        #{$property}: $width;
+      }
+    }
+  }
+}
+
+@include set_width();
