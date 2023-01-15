@@ -1,0 +1,20 @@
+// All position utilities
+
+$positions: (
+  "a": absolute,
+  "f": fixed,
+  "r": relative,
+  "s": sticky
+);
+
+$position_token: "p";
+
+@mixin set_position() {
+  @each $key, $position in $positions {
+    .#{$position_token}#{$key} {
+      position : #{$position}
+    };
+  }
+}
+
+@include set_position();

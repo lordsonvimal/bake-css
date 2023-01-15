@@ -45,6 +45,7 @@ $count: 7;
 $spaces: get_spaces();
 
 // Margins
+@include set_space("m", "margin", $spaces);
 @include set_space("ml", "margin-left", $spaces);
 @include set_space("mr", "margin-right", $spaces);
 @include set_space("mt", "margin-top", $spaces);
@@ -52,6 +53,7 @@ $spaces: get_spaces();
 @include set_space("mi", "margin-inline", $spaces);
 
 // Paddings
+@include set_space("p", "padding", $spaces);
 @include set_space("pl", "padding-left", $spaces);
 @include set_space("pr", "padding-right", $spaces);
 @include set_space("pt", "padding-top", $spaces);
