@@ -1,0 +1,28 @@
+// Standardize heights
+
+$heights: (
+  "a": auto,
+  "mc": min-content,
+  "Mc": max-content,
+  "50p": 50%,
+  "100p": 100%,
+  "100v": 100vh
+);
+
+$height_properties: (
+  "Mh": "max-height",
+  "mh": "min-height",
+  "h": "height"
+);
+
+@mixin set_height() {
+  @each $style, $property in $height_properties {
+    @each $key, $height in $heights {
+      .#{$style}#{$key} {
+        #{$property}: $height;
+      }
+    }
+  }
+}
+
+@include set_height();

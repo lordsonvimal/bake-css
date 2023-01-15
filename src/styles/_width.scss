@@ -1,10 +1,11 @@
 // Standardize widths
 
 $widths: (
-  "a": "auto",
-  "mc": "min-content",
-  "Mc": "max-content",
-  "50p": "50%"
+  "a": auto,
+  "mc": min-content,
+  "Mc": max-content,
+  "50p": 50%,
+  "100v": 100vw
 );
 
 $width_properties: (
