@@ -1,0 +1,26 @@
+$flex-values: (
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4
+);
+
+@mixin set_flex_properties($style, $property, $values) {
+  @each $key, $value in $values {
+    .#{$style}#{$key} {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+.row {
+  align-items: center;
+  display: flex;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+}
+
+@include set_flex_properties("f", "flex", $flex-values);
