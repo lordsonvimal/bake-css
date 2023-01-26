@@ -5,6 +5,15 @@ $flex-values: (
   "4": 4
 );
 
+$align-values: (
+  "c": center,
+  "b": baseline,
+  "e": end,
+  "s": stretch,
+  "fs": flex-start,
+  "fe": flex-end
+);
+
 @mixin set_flex_properties($style, $property, $values) {
   @each $key, $value in $values {
     .#{$style}#{$key} {
@@ -24,3 +33,4 @@ $flex-values: (
 }
 
 @include set_flex_properties("f", "flex", $flex-values);
+@include set_flex_properties("ai", "align-items", $align-values);
