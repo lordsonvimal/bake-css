@@ -11,7 +11,10 @@ $align-values: (
   "e": end,
   "s": stretch,
   "fs": flex-start,
-  "fe": flex-end
+  "fe": flex-end,
+  "sa": space-around,
+  "sb": space-between,
+  "se": space-evenly
 );
 
 @mixin set_flex_properties($style, $property, $values) {
@@ -34,3 +37,4 @@ $align-values: (
 
 @include set_flex_properties("f", "flex", $flex-values);
 @include set_flex_properties("ai", "align-items", $align-values);
+@include set_flex_properties("ac", "align-content", $align-values);
