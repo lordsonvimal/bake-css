@@ -38,3 +38,4 @@ $align-values: (
 @include set_flex_properties("f", "flex", $flex-values);
 @include set_flex_properties("ai", "align-items", $align-values);
 @include set_flex_properties("ac", "align-content", $align-values);
+@include set_flex_properties("as", "align-self", $align-values);
