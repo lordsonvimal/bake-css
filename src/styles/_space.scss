@@ -14,7 +14,7 @@ $count: 7;
 @function get_spaces() {
   $spaces: ();
   @for $i from 0 to $count + 1 {
-    $new_space: ($i: $i * $multiplier);
+    $new_space: ($i * $multiplier: $i * $multiplier);
     $spaces: map.merge($spaces, $new_space);
   }
   @return $spaces;
