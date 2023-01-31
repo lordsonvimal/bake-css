@@ -2,7 +2,13 @@ $flex-values: (
   "1": 1,
   "2": 2,
   "3": 3,
-  "4": 4
+  "4": 4,
+  "50p": 50%,
+  "100p": 100%,
+  "00a": 0 0 auto,
+  "01a": 0 1 auto,
+  "10a": 1 0 auto,
+  "11a": 1 1 auto
 );
 
 $align-values: (
@@ -39,4 +45,6 @@ $align-values: (
 @include set_flex_properties("ai", "align-items", $align-values);
 @include set_flex_properties("ac", "align-content", $align-values);
 @include set_flex_properties("as", "align-self", $align-values);
+@include set_flex_properties("ji", "justify-items", $align-values);
 @include set_flex_properties("jc", "justify-content", $align-values);
+@include set_flex_properties("js", "justify-self", $align-values);
