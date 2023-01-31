@@ -1,18 +1,41 @@
 // Standardize border, border-radius;
 
 $border-radius: (
-  "0": "0",
-  "3": "3px",
-  "5": "5px",
-  "50p": "50%"
+  "0": 0,
+  "3": 3px,
+  "5": 5px,
+  "50p": 50%
 );
 
-@mixin set_border_radius($style, $property, $radius_values) {
-  @each $key, $radius in $radius_values {
+$borders: (
+  "1s": 1px solid,
+  "2s": 2px solid,
+  "3s": 3px solid
+);
+
+$border-styles: (
+  "d": dashed,
+  "dd": dotted,
+  "de": double,
+  "g": groove,
+  "i": inset,
+  "o": outset,
+  "h": hidden,
+  "u": unset,
+);
+
+@mixin set_border_props($style, $property, $values) {
+  @each $key, $value in $values {
     .#{$style}#{$key} {
-      #{$property}: #{$radius};
+      #{$property}: #{$value};
     }
   }
 }
 
-@include set_border_radius("br", "border-radius", $border-radius);
+@include set_border_props("br", "border-radius", $border-radius);
+@include set_border_props("btlr", "border-top-left-radius", $border-styles);
+@include set_border_props("btrr", "border-top-right-radius", $border-styles);
+@include set_border_props("bblr", "border-bottom-left-radius", $border-styles);
+@include set_border_props("bbrr", "border-bottom-right-radius", $border-styles);
+@include set_border_props("b", "border", $borders);
+@include set_border_props("bs", "border-style", $border-styles);
