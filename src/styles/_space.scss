@@ -11,35 +11,26 @@
 $multiplier: 4;
 $count: 7;
 
+$additional_spaces: (
+  "a": auto,
+  "u": unset
+);
+
 @function get_spaces() {
   $spaces: ();
   @for $i from 0 to $count + 1 {
-    $new_space: ($i * $multiplier: $i * $multiplier);
-    $spaces: map.merge($spaces, $new_space);
+    $spaces: map.merge($spaces, ($i * $multiplier: #{$i * $multiplier}px));
   }
+  $spaces: map.merge($spaces, $additional_spaces);
   @return $spaces;
-}
-
-@mixin unset($style, $property) {
-  .#{$style}u {
-    #{$property}: unset;
-  }
-}
-
-@mixin auto($style, $property) {
-  .#{$style}a {
-    #{$property}: auto;
-  }
 }
 
 @mixin set_space($style, $property, $spaces) {
   @each $key, $space in $spaces {
     .#{$style}#{$key} {
-      #{$property}: #{$space}px;
+      #{$property}: #{$space};
     }
   }
-  @include unset($style, $property);
-  @include auto($style, $property);
 }
 
 $spaces: get_spaces();
