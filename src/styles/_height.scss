@@ -1,4 +1,4 @@
-// Standardize heights
+@use "./mixins";
 
 $heights: (
   "a": auto,
@@ -9,20 +9,6 @@ $heights: (
   "100v": 100vh
 );
 
-$height_properties: (
-  "Mh": "max-height",
-  "mh": "min-height",
-  "h": "height"
-);
-
-@mixin set_height() {
-  @each $style, $property in $height_properties {
-    @each $key, $height in $heights {
-      .#{$style}#{$key} {
-        #{$property}: $height;
-      }
-    }
-  }
-}
-
-@include set_height();
+@include mixins.create_class("Mh", "max-height", $heights);
+@include mixins.create_class("mh", "min-height", $heights);
+@include mixins.create_class("h", "height", $heights);

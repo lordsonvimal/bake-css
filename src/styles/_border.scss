@@ -1,4 +1,4 @@
-// Standardize border, border-radius;
+@use "./mixins";
 
 $border-radius: (
   "0": 0,
@@ -24,18 +24,10 @@ $border-styles: (
   "u": unset,
 );
 
-@mixin set_border_props($style, $property, $values) {
-  @each $key, $value in $values {
-    .#{$style}#{$key} {
-      #{$property}: #{$value};
-    }
-  }
-}
-
-@include set_border_props("br", "border-radius", $border-radius);
-@include set_border_props("btlr", "border-top-left-radius", $border-styles);
-@include set_border_props("btrr", "border-top-right-radius", $border-styles);
-@include set_border_props("bblr", "border-bottom-left-radius", $border-styles);
-@include set_border_props("bbrr", "border-bottom-right-radius", $border-styles);
-@include set_border_props("b", "border", $borders);
-@include set_border_props("bs", "border-style", $border-styles);
+@include mixins.create_class("br", "border-radius", $border-radius);
+@include mixins.create_class("btlr", "border-top-left-radius", $border-radius);
+@include mixins.create_class("btrr", "border-top-right-radius", $border-radius);
+@include mixins.create_class("bblr", "border-bottom-left-radius", $border-radius);
+@include mixins.create_class("bbrr", "border-bottom-right-radius", $border-radius);
+@include mixins.create_class("b", "border", $borders);
+@include mixins.create_class("bs", "border-style", $border-styles);

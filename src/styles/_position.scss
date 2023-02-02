@@ -1,4 +1,4 @@
-// All position utilities
+@use "./mixins";
 
 $positions: (
   "a": absolute,
@@ -9,12 +9,4 @@ $positions: (
 
 $position_token: "p";
 
-@mixin set_position() {
-  @each $key, $position in $positions {
-    .#{$position_token}#{$key} {
-      position : #{$position}
-    };
-  }
-}
-
-@include set_position();
+@include mixins.create_class($position_token, "position", $positions);

@@ -1,3 +1,6 @@
+@use "./mixins";
+@use "./space";
+
 $flex-values: (
   "1": 1,
   "2": 2,
@@ -23,14 +26,6 @@ $align-values: (
   "se": space-evenly
 );
 
-@mixin set_flex_properties($style, $property, $values) {
-  @each $key, $value in $values {
-    .#{$style}#{$key} {
-      #{$property}: #{$value};
-    }
-  }
-}
-
 .row {
   align-items: center;
   display: flex;
@@ -41,10 +36,11 @@ $align-values: (
   justify-content: center;
 }
 
-@include set_flex_properties("f", "flex", $flex-values);
-@include set_flex_properties("ai", "align-items", $align-values);
-@include set_flex_properties("ac", "align-content", $align-values);
-@include set_flex_properties("as", "align-self", $align-values);
-@include set_flex_properties("ji", "justify-items", $align-values);
-@include set_flex_properties("jc", "justify-content", $align-values);
-@include set_flex_properties("js", "justify-self", $align-values);
+@include mixins.create_class("f", "flex", $flex-values);
+@include mixins.create_class("ai", "align-items", $align-values);
+@include mixins.create_class("ac", "align-content", $align-values);
+@include mixins.create_class("as", "align-self", $align-values);
+@include mixins.create_class("ji", "justify-items", $align-values);
+@include mixins.create_class("jc", "justify-content", $align-values);
+@include mixins.create_class("js", "justify-self", $align-values);
+@include mixins.create_class("g", "gap", space.$spaces);

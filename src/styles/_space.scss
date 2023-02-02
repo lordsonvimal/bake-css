@@ -7,6 +7,7 @@
 // Line height (em or rem) - Because it needs to be relative to the font size. Unless you want to set a vertical rhythm and such.
 // https://dev.to/theodorusclarence/back-to-basic-should-we-use-rem-em-or-pixel-1hd0
 @use "sass:map";
+@use "./mixins";
 
 $multiplier: 4;
 $count: 7;
@@ -25,28 +26,20 @@ $additional_spaces: (
   @return $spaces;
 }
 
-@mixin set_space($style, $property, $spaces) {
-  @each $key, $space in $spaces {
-    .#{$style}#{$key} {
-      #{$property}: #{$space};
-    }
-  }
-}
-
 $spaces: get_spaces();
 
 // Margins
-@include set_space("m", "margin", $spaces);
-@include set_space("mi", "margin-inline", $spaces);
-@include set_space("ml", "margin-left", $spaces);
-@include set_space("mr", "margin-right", $spaces);
-@include set_space("mt", "margin-top", $spaces);
-@include set_space("mb", "margin-bottom", $spaces);
+@include mixins.create_class("m", "margin", $spaces);
+@include mixins.create_class("mi", "margin-inline", $spaces);
+@include mixins.create_class("ml", "margin-left", $spaces);
+@include mixins.create_class("mr", "margin-right", $spaces);
+@include mixins.create_class("mt", "margin-top", $spaces);
+@include mixins.create_class("mb", "margin-bottom", $spaces);
 
 // Paddings
-@include set_space("p", "padding", $spaces);
-@include set_space("pi", "padding-inline", $spaces);
-@include set_space("pl", "padding-left", $spaces);
-@include set_space("pr", "padding-right", $spaces);
-@include set_space("pt", "padding-top", $spaces);
-@include set_space("pb", "padding-bottom", $spaces);
+@include mixins.create_class("p", "padding", $spaces);
+@include mixins.create_class("pi", "padding-inline", $spaces);
+@include mixins.create_class("pl", "padding-left", $spaces);
+@include mixins.create_class("pr", "padding-right", $spaces);
+@include mixins.create_class("pt", "padding-top", $spaces);
+@include mixins.create_class("pb", "padding-bottom", $spaces);

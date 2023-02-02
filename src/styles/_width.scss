@@ -1,4 +1,4 @@
-// Standardize widths
+@use "./mixins";
 
 $widths: (
   "a": auto,
@@ -15,14 +15,6 @@ $width_properties: (
   "w": "width"
 );
 
-@mixin set_width() {
-  @each $style, $property in $width_properties {
-    @each $key, $width in $widths {
-      .#{$style}#{$key} {
-        #{$property}: $width;
-      }
-    }
-  }
-}
-
-@include set_width();
+@include mixins.create_class("Mw", "max-width", $widths);
+@include mixins.create_class("mw", "min-width", $widths);
+@include mixins.create_class("w", "width", $widths);

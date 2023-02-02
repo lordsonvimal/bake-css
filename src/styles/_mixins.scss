@@ -1,0 +1,7 @@
+@mixin create_class($class_name, $property, $values) {
+  @each $key, $value in $values {
+    .#{$class_name}#{$key} {
+      #{$property}: #{$value};
+    }
+  }
+}
