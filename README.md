@@ -82,3 +82,4 @@ Some common problems can be mitigated
 - Responsiveness guideline
 - Color system
 - Animation
+- Compare against OOCSS, BEM, SMACSS
