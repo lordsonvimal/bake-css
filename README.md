@@ -1,13 +1,15 @@
+# BAKE
+
 Bake is a halfcooked SCSS guideline + library of css utilities for modern browsers.
 Cook it yourselves.
 
-### What?
+## What?
 Bake is a guideline for css utilities.
 Define utility classes and use it in your html.
 
 Ingredients for cooking maintainable, scalable, performant styles are provided by Bake.
 
-### Why?
+## Why?
 A lot of projects still uses preprocessors like scss but without any guidelines or rules.
 When the project grew and became complex, there were lot of duplicate styles named differently and
 nobody removes unused style when removing a html segment.
@@ -19,11 +21,7 @@ Although we can use postcss plugins like (purge css) to remove unused css, it is
 Solution: Use guidelines / utilities like Bake, Tailwind css or a design system.
 Bake focusses on reducing the size of css and shares some of the work to html.
 
-### How?
-- Standardize everything.
-- Naming - Have class names upto 6 characters
-- Build components - Compose smaller components as much as possible
-
+## How?
 Bake defines classnames in following categories
 
 - Single style
@@ -45,3 +43,42 @@ These class names are defined as
   - .hmc { height: min-content }
   - .hMc { height: max-content }
 
+- Layout style
+Styles used for layout can have meaningful names like `row` and `col`
+When using flexbox, most properties are available as `Single style`
+
+grid layout is a bit complex, involves a lot of combinations. Build grid system using a component system of your choice
+
+- Component style
+For any component, try to create a set of standards around it and build css accordingly.
+
+Use the guideline to define your component classes.
+
+## Guideline
+- Standardize everything
+- Naming
+  - Have class names upto 6 characters
+  - Resolve conflicts wisely and consistently
+- Build components
+  - Compose smaller reusable components
+- Inline custom value properties
+- Remove unused style
+  - Track and report unused style if possible
+  - Use tools like postcss to do this
+
+## Drawbacks
+Some common problems can be mitigated
+- It takes time to grasp the defined grammar. Each dev prefers their own grammar
+  - Once learned, devs will gain superpowers
+- HTML can look cluttered and hard to understand the style of the class
+  - Create document site similar to `font-awesome` or `material-icons`
+  - Create editor plugin
+- Doesn't cover all the cases
+  - CSS is complex and evolving rapidly. Covering all the cases is nearly impossible.
+  - The objective of bake is not to cover all the cases. It is to make people
+
+## TODO
+- Typography
+- Responsiveness guideline
+- Color system
+- Animation
