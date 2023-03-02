@@ -47,7 +47,13 @@ When using flexbox, most properties are available as `Single style`
 grid layout is a bit complex, involves a lot of combinations. Build grid system using a component system of your choice
 
 - Component style
+Composition of components are an art.
+
+Build common components / templates with their behaviour
+
 For any component, try to create a set of standards around it and build css accordingly.
+
+Component styles usually are defined as layout styles + component specific style (colors, sometimes spaces, etc...)
 
 Use the guideline to define your component classes.
 
