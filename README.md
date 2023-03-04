@@ -59,6 +59,7 @@ Use the guideline to define your component classes.
 
 ## Guideline
 - Standardize everything
+- Classes should not use overrides
 - Naming
   - Recommended to have class names upto 6 characters. Organizations can decide naming conventions according to their needs
   - Resolve conflicts wisely and consistently
@@ -85,7 +86,7 @@ Some common problems can be mitigated
   - Create editor plugin
 - Doesn't cover all the cases
   - CSS is complex and evolving rapidly. Covering all the cases is nearly impossible.
-  - The objective of bake is not to cover all the cases. It is to make people
+  - The objective of bake is not to cover all the cases. It is to make reduce, recycle and reuse css as much as possible
 
 ## TODO
 - Typography
