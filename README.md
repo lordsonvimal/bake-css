@@ -66,8 +66,15 @@ Use the guideline to define your component classes.
   - Compose smaller reusable components
 - Inline custom value properties
 - Remove unused style
-  - Track and report unused style if possible
-  - Use tools like postcss to do this
+  - Track and report unused styles
+  - Use tools like postcss to remove unused css
+- CSS resets
+  - Add global reset for html, body and all elements in body
+  - Add reset for every component
+- Typography
+  - Don't use more than 2 font families and not more than 3 variations
+  - Use em/rem units for fonts
+  - Some font based component can use `rem`
 
 ## Drawbacks
 Some common problems can be mitigated
