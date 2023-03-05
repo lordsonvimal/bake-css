@@ -59,7 +59,7 @@ Use the guideline to define your component classes.
 
 ## Guideline
 - Standardize everything
-- Classes should not use overrides
+- Classes should not use overrides unless it is an override of reset
 - Naming
   - Recommended to have class names upto 6 characters. Organizations can decide naming conventions according to their needs
   - Resolve conflicts wisely and consistently
@@ -75,7 +75,7 @@ Use the guideline to define your component classes.
 - Typography
   - Don't use more than 2 font families and not more than 3 variations
   - Use em/rem units for fonts
-  - Some font based component can use `rem`
+  - Spaces relative to fonts can use `em` or `rem`
 
 ## Drawbacks
 Some common problems can be mitigated
