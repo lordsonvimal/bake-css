@@ -4,7 +4,7 @@ Bake is a halfcooked SCSS guideline + library of css utilities for modern browse
 Cook it yourselves.
 
 ## What?
-Bake is a guideline for css utilities. Combination of ACSS (Atomic CSS), layout + component library and inline styles.
+Bake is a guideline for css utilities. Combination of ACSS (Atomic CSS), ITCSS, layout + component library and inline styles.
 
 Ingredients for cooking maintainable, scalable, performant styles are provided by Bake.
 
@@ -15,8 +15,9 @@ Styles are be very hard to maintain. Reusing styles are so hard to maintain that
 - When the project grew and became complex, there were lot of duplicate styles named differently and
 nobody removes unused style when removing a html segment.
 - Some projects use approx `600 kb` of minified styles not including font and icon set
+- Using third party libraries such as `Tailwind css` or `sylex` is an additional maintenance overhead
 
-Solution: Use guidelines / utilities like Bake, `Tailwind css` or a design system.
+Solution: Use guidelines / utilities like Bake, or a design system.
 
 ## How?
 Bake defines classnames in following categories
@@ -86,7 +87,7 @@ Some common problems can be mitigated
   - Create editor plugin
 - Doesn't cover all the cases
   - CSS is complex and evolving rapidly. Covering all the cases is nearly impossible.
-  - The objective of bake is not to cover all the cases. It is to make reduce, recycle and reuse css as much as possible
+  - The objective of bake is not to cover all the cases. It is to make reduce, recycle and reuse css as much as possible  
 
 ## TODO
 - Typography
@@ -94,3 +95,4 @@ Some common problems can be mitigated
 - Color system
 - Animation
 - Compare against OOCSS, BEM, SMACSS
+- Build a compiler to trim down the styles and order of execution of a style
