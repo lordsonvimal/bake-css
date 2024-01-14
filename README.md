@@ -1,6 +1,6 @@
 # BAKE
 
-Bake is a halfcooked SCSS guideline + library of css utilities for modern browsers.
+Bake is a halfcooked CSS guideline + library of css utilities for modern browsers.
 Cook it yourselves.
 
 ## What?
@@ -11,9 +11,9 @@ Ingredients for cooking maintainable, scalable, performant styles are provided b
 ## Why?
 Styles are be very hard to maintain. Reusing styles are so hard to maintain that developers tend to use a library in products.
 
-- A lot of projects still uses preprocessors like scss but without any guidelines or rules.
+- A lot of projects uses preprocessors like SASS | LESS but without any guidelines or rules
 - When the project grew and became complex, there were lot of duplicate styles named differently and
-nobody removes unused style when removing a html segment.
+nobody removes unused style when removing a html segment
 - Some projects use approx `600 kb` of minified styles not including font and icon set
 - Using third party libraries such as `Tailwind css` or `sylex` is an additional maintenance overhead
 
@@ -92,5 +92,5 @@ Some common problems can be mitigated
 - Responsiveness guideline
 - Color system
 - Animation
-- Compare against OOCSS, BEM, SMACSS
+- Compare against OOCSS, BEM, SMACSS, ITCSS
 - Build a compiler to trim down the styles and order of execution of a style
