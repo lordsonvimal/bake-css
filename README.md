@@ -77,7 +77,8 @@ Use the guideline to define your component classes.
   - Don't use more than 2 font families and not more than 3 variations
   - Use em/rem units for fonts
   - Spaces relative to fonts can use `em` or `rem`
-
+- Compiler
+  - Create a compiler for dynamic styling and create only the used styles using it
 ## Drawbacks
 Some common problems can be mitigated
 - It takes time to grasp the defined grammar. Each dev prefers their own grammar
@@ -85,9 +86,6 @@ Some common problems can be mitigated
 - HTML can look cluttered and hard to understand the style of the class
   - Create document site similar to `font-awesome` or `material-icons`
   - Create editor plugin
-- Doesn't cover all the cases
-  - CSS is complex and evolving rapidly. Covering all the cases is nearly impossible.
-  - The objective of bake is not to cover all the cases. It is to make reduce, recycle and reuse css as much as possible  
 
 ## TODO
 - Typography

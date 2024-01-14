@@ -1,13 +1,13 @@
 {
-  "name": "bake-scss",
+  "name": "bake-css",
   "version": "1.0.0",
-  "description": "A halfcooked scss library for css utilities",
+  "description": "A halfcooked library / guideline for css utilities. Cook it yourselves",
   "main": "index.js",
   "scripts": {
     "dev": "sass --watch src/input.scss dist/output.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["bake"],
+  "keywords": ["bake", "css"],
   "author": "Lordson Vimal",
   "license": "ISC",
   "dependencies": {
