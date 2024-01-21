@@ -1,4 +1,5 @@
 // All the global tokens goes here
+// Token are names and their values. This should be compiled into classes
 
 export const GLOBAL_BORDER = "0px";
 
@@ -29,7 +30,7 @@ export const PADDING_PROPS = {
 };
 
 export const MARGIN_PROPS = {
-  all: "m",
+  margin: "",
   inline: "mi",
   left: "ml",
   right: "mr",
