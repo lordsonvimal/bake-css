@@ -10,6 +10,7 @@ export const BORDERS = {
   "50p": "50%"
 };
 
+// Note that gap property doesn't support "auto"
 export const SPACES = {
   4: "4px",
   8: "8px",
@@ -21,27 +22,27 @@ export const SPACES = {
 };
 
 export const PADDING_PROPS = {
-  all: "p",
-  inline: "pi",
-  left: "pl",
-  right: "pr",
-  top: "pt",
-  bottom: "pb"
+  padding: "",
+  inline: "i",
+  left: "l",
+  right: "r",
+  top: "t",
+  bottom: "b"
 };
 
 export const MARGIN_PROPS = {
   margin: "",
-  inline: "mi",
-  left: "ml",
-  right: "mr",
-  top: "mt",
-  bottom: "mb"
+  inline: "i",
+  left: "l",
+  right: "r",
+  top: "t",
+  bottom: "b"
 };
 
 export const BORDER_PROPS = {
   left: "bl",
   top: "bt",
-}
+};
 
 const ALIGN_PROPS_NAME = "a";
 const ANIMATION_PROPS_NAME = "an";
