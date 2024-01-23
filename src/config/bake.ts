@@ -21,6 +21,10 @@ export class Bake {
     return this;
   }
 
+  font() {
+    return this;
+  }
+
   padding() {
     return this;
   }

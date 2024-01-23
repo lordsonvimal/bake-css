@@ -35,15 +35,15 @@ import { Bake } from "./bake";
 
 export class Pseudo {
   parent: Bake;
-  onFocus: Bake | null;
+  _focus: Bake | null;
 
   constructor(parent: Bake) {
     this.parent = parent;
-    this.onFocus = null;
+    this._focus = null;
   }
 
   focus(bake: Bake) {
-    this.onFocus = bake;
+    this._focus = bake;
     return this.parent;
   }
 
