@@ -30,3 +30,24 @@
 // :target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
 // :valid	input:valid	Selects all <input> elements with a valid value
 // :visited	a:visited	Selects all visited links
+
+import { Bake } from "./bake";
+
+export class Pseudo {
+  parent: Bake;
+  onFocus: Bake | null;
+
+  constructor(parent: Bake) {
+    this.parent = parent;
+    this.onFocus = null;
+  }
+
+  focus(bake: Bake) {
+    this.onFocus = bake;
+    return this.parent;
+  }
+
+  value() {
+    // return merged value for all configured pseudo class and element styles
+  }
+}

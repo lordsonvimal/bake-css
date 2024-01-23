@@ -1,8 +1,20 @@
+import { Pseudo } from "./pseudo";
+
 export class Bake {
   style: Record<string, any>;
+  unique: string;
+  _pseudo: Pseudo | null;
 
-  constructor() {
+  constructor(unique: string) {
+    this.unique = unique;
     this.style = {};
+    this._pseudo = null;
+  }
+
+  pseudo() {
+    if (this._pseudo) return this._pseudo;
+    this._pseudo = new Pseudo(this);
+    return this._pseudo;
   }
 
   border() {
@@ -18,14 +30,6 @@ export class Bake {
   }
 
   height() {
-    return this;
-  }
-
-  minHeight() {
-    return this;
-  }
-
-  maxHeight() {
     return this;
   }
 
