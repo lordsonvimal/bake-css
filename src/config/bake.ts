@@ -1,13 +1,16 @@
+import { Border } from "./border";
 import { Pseudo } from "./pseudo";
 
 export class Bake {
   style: Record<string, any>;
   unique: string;
+  _border: Border | null;
   _pseudo: Pseudo | null;
 
   constructor(unique: string) {
     this.unique = unique;
     this.style = {};
+    this._border = null;
     this._pseudo = null;
   }
 
@@ -18,7 +21,9 @@ export class Bake {
   }
 
   border() {
-    return this;
+    if (this._border) return this._border;
+    this._border = new Border(this);
+    return this._border;
   }
 
   font() {
