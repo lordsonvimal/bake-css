@@ -31,23 +31,9 @@
 // :valid	input:valid	Selects all <input> elements with a valid value
 // :visited	a:visited	Selects all visited links
 
-import { Bake } from "./bake";
+import { style } from "./style";
 
-export class Pseudo {
-  parent: Bake;
-  _focus: Bake | null;
-
-  constructor(parent: Bake) {
-    this.parent = parent;
-    this._focus = null;
-  }
-
-  focus(bake: Bake) {
-    this._focus = bake;
-    return this.parent;
-  }
-
-  value() {
-    // return merged value for all configured pseudo class and element styles
-  }
+// Use strongly typed "Bake"
+export function pseudo(selector: string) {
+  return style();
 }

@@ -1,68 +1,23 @@
-import { Border } from "./border";
-import { Pseudo } from "./pseudo";
+import { pseudo } from "./pseudo";
+import { style } from "./style";
 
-export class Bake {
-  style: Record<string, any>;
-  unique: string;
-  _border: Border | null;
-  _pseudo: Pseudo | null;
-
-  constructor(unique: string) {
-    this.unique = unique;
-    this.style = {};
-    this._border = null;
-    this._pseudo = null;
-  }
-
-  pseudo() {
-    if (this._pseudo) return this._pseudo;
-    this._pseudo = new Pseudo(this);
-    return this._pseudo;
-  }
-
-  border() {
-    if (this._border) return this._border;
-    this._border = new Border(this);
-    return this._border;
-  }
-
-  font() {
-    return this;
-  }
-
-  padding() {
-    return this;
-  }
-
-  margin() {
-    return this;
-  }
-
-  height() {
-    return this;
-  }
-
-  position() {
-    return this;
-  }
-
-  overflow() {
-    return this;
-  }
-
-  display() {
-    return this;
-  }
-
-  width() {
-    return this;
-  }
-
-  zIndex() {
-    return this;
-  }
-
-  value() {
-    return this.style;
-  }
+export function bake(className: string) {
+  // Use styles properly so that builder pattern is proper
+  return {
+    className,
+    pseudo,
+    ...style()
+  };
 }
+
+// Ex Usage:
+// const btnStyle = bake("btn").border(1).borderColor(red).fontSize(12).paddingInline(8);
+// const btnStyle = bake("btn").pseudo("select").borderColor(blue);
+// const btnStyle = "b1 bcr fs12 pi8";
+
+// style.css
+// .b1 {}
+// .bcr {}
+// .fs12 {}
+// .pi8 {}
+// .btn:select { border-color: "#ccdeef"; }
