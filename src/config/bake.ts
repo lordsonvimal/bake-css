@@ -1,12 +1,12 @@
 import { pseudo } from "./pseudo";
-import { style } from "./style";
+import { Style } from "./style";
 
 export function bake(className: string) {
   // Use styles properly so that builder pattern is proper
   return {
     className,
     pseudo,
-    ...style()
+    ...new Style().methods()
   };
 }
 
@@ -20,4 +20,5 @@ export function bake(className: string) {
 // .bcr {}
 // .fs12 {}
 // .pi8 {}
-// .btn:select { border-color: "#ccdeef"; }
+// .bcb:select { border-color: "#ccdeef"; }
+// @media

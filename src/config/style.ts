@@ -1,6 +1,14 @@
-export function style(s = {}) {
-  // Include all style properties here
-  return {
-    style: s
+import { Border } from "./border";
+
+export class Style {
+  style: any;
+  constructor() {
+    this.style = {};
+  }
+
+  methods = () => {
+    return {
+      ...new Border(this.style)
+    };
   };
 }
