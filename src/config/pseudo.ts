@@ -31,9 +31,23 @@
 // :valid	input:valid	Selects all <input> elements with a valid value
 // :visited	a:visited	Selects all visited links
 
-import { style } from "./style";
+import { Style } from "./style";
 
-// Use strongly typed "Bake"
+// Use strongly typed
+export class Pseudo {
+  selector: string;
+  constructor(selector: string) {
+    this.selector = selector;
+  }
+
+  methods = () => {
+    return {
+      selector: this.selector,
+      ...new Style().methods()
+    };
+  }
+}
+
 export function pseudo(selector: string) {
-  return style();
+  return new Pseudo(selector);
 }

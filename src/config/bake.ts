@@ -12,7 +12,7 @@ export function bake(className: string) {
 
 // Ex Usage:
 // const btnStyle = bake("btn").border(1).borderColor(red).fontSize(12).paddingInline(8);
-// const btnStyle = bake("btn").pseudo("select").borderColor(blue);
+// const btnStyle = bake("btn").select().borderColor(blue);
 // const btnStyle = "b1 bcr fs12 pi8";
 
 // style.css
