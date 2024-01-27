@@ -1,11 +1,11 @@
-import { COLORS, COLORS_KEY_VAL } from "../config/color";
+import { COLORS_KEY_VAL } from "../config/color";
 import { Style } from "./style";
 
 const BORDER_WIDTHS = {
-  0: "0px",
-  1: "1px",
-  3: "3px",
-  5: "5px"
+  "0": "0px",
+  "1": "1px",
+  "3": "3px",
+  "5": "5px"
 };
 
 const BORDER_STYLES = {
@@ -30,26 +30,18 @@ type BorderWidthColor = `${BorderWidth}s${BorderColor}`;
 type BorderVal = Record<BorderWidthColor | "n", string>;
 
 function getBorders() {
-  const borders = {
+  const borders: Record<string, string> = {
     n: "none"
   };
-  for (let borderWidth in BORDER_WIDTHS) {
+  for (const borderWidth in BORDER_WIDTHS) {
     for (let borderColor in COLORS_KEY_VAL) {
-      borders[`${borderWidth}s${borderColor}`] = `${BORDER_WIDTHS[borderWidth]} solid ${COLORS_KEY_VAL[borderColor]}`;
+      borders[`${borderWidth}s${borderColor}` as BorderWidthColor] = `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
     }
   }
   return borders as BorderVal;
 }
 
 const BORDERS = getBorders();
-
-for (let width in BORDER_WIDTHS) {
-  for (let color in COLORS) {
-    for (let level in COLORS[color]) {
-      BORDERS[`${width}s${color}${level}`] = `${BORDER_WIDTHS[width]} solid ${COLORS[color][level]}`;
-    }
-  }
-}
 
 export class Border {
   style: Style;

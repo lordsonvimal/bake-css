@@ -10,7 +10,7 @@ export class Style {
   methods = () => {
     const obj = {
       props: this.props,
-      ...(new Border(this).methods())
+      ...new Border(this).methods()
     };
     
     return obj;
