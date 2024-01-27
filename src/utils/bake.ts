@@ -1,12 +1,14 @@
-import { pseudo } from "./pseudo";
+import { Pseudo } from "./pseudo";
 import { Style } from "./style";
 
 export function bake(className: string) {
-  // Use styles properly so that builder pattern is proper
+  const pseudo = new Pseudo();
+  const style = new Style();
+
   return {
     className,
-    pseudo,
-    ...new Style().methods()
+    ...pseudo.methods(),
+    ...style.methods()
   };
 }
 

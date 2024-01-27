@@ -1,14 +1,15 @@
 import { Border } from "./border";
 
 export class Style {
-  style: any;
+  props: Record<string, any>;
+
   constructor() {
-    this.style = {};
+    this.props = {};
   }
 
   methods = () => {
     return {
-      ...new Border(this.style)
+      ...new Border(this)
     };
   };
 }

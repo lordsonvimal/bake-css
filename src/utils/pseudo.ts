@@ -33,21 +33,43 @@
 
 import { Style } from "./style";
 
+type PseudoSelector = "select" | "hover" | "focus" | "valid" | "active" | "disabled" | "checked" | "first-child" | "last-child" | "root" | "required" | "optional";
+
 // Use strongly typed
 export class Pseudo {
-  selector: string;
-  constructor(selector: string) {
-    this.selector = selector;
+  selector: Record<string, any>;
+  constructor() {
+    this.selector = {};
+  }
+
+  pseudo = (selector: PseudoSelector) => {
+    const style = new Style();
+    this.selector[selector] = style;
+    return style.methods();
+  }
+
+  select = () => {
+    return this.pseudo("select");
+  }
+
+  hover = () => {
+    return this.pseudo("hover");
+  }
+
+  focus = () => {
+    return this.pseudo("focus");
+  }
+
+  valid = () => {
+    return this.pseudo("valid");
   }
 
   methods = () => {
     return {
-      selector: this.selector,
-      ...new Style().methods()
+      focus: this.focus,
+      hover: this.hover,
+      select: this.select,
+      valid: this.valid
     };
   }
-}
-
-export function pseudo(selector: string) {
-  return new Pseudo(selector);
 }

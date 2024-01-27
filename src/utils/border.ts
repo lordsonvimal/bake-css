@@ -1,38 +1,40 @@
 // Placeholder for border styles
 
-export class Border {
-  style: any;
+import { Style } from "./style";
 
-  constructor(style: any) {
+export class Border {
+  style: Style;
+
+  constructor(style: Style) {
     this.style = style;
   }
 
   borderTop = () => {
-    return this;
+    return this.style;
   }
   
   borderRight = () => {
-    return this;
+    return this.style;
   }
   
   borderBottom = () => {
-    return this;
+    return this.style;
   }
   
   borderLeft = () => {
-    return this;
+    return this.style;
   }
   
   borderWidth = () => {
-    return this;
+    return this.style;
   }
   
   borderRadius = () => {
-    return this;
+    return this.style;
   }
   
   borderColor = () => {
-    return this;
+    return this.style;
   }
 
   methods = () => {
