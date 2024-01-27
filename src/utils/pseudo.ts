@@ -31,38 +31,49 @@
 // :valid	input:valid	Selects all <input> elements with a valid value
 // :visited	a:visited	Selects all visited links
 
-import { Style } from "./style";
+import { Bake } from "./bake";
 
-type PseudoSelector = "select" | "hover" | "focus" | "valid" | "active" | "disabled" | "checked" | "first-child" | "last-child" | "root" | "required" | "optional";
+type PseudoSelector =
+  | ":select"
+  | ":hover"
+  | ":focus"
+  | ":valid"
+  | ":active"
+  | ":disabled"
+  | ":checked"
+  | ":first-child"
+  | ":last-child"
+  | ":root"
+  | ":required"
+  | ":optional";
 
 // Use strongly typed
 export class Pseudo {
-  selector: Record<string, any>;
-  constructor() {
-    this.selector = {};
+  bake: Bake;
+  constructor(bake: Bake) {
+    this.bake = bake;
   }
 
   pseudo = (selector: PseudoSelector) => {
-    const style = new Style();
-    this.selector[selector] = style;
-    return style.methods();
-  }
+    this.bake.style.setCurrentProp(selector);
+    return this.bake.methods();
+  };
 
   select = () => {
-    return this.pseudo("select");
-  }
+    return this.pseudo(":select");
+  };
 
   hover = () => {
-    return this.pseudo("hover");
-  }
+    return this.pseudo(":hover");
+  };
 
   focus = () => {
-    return this.pseudo("focus");
-  }
+    return this.pseudo(":focus");
+  };
 
   valid = () => {
-    return this.pseudo("valid");
-  }
+    return this.pseudo(":valid");
+  };
 
   methods = () => {
     return {
@@ -71,5 +82,5 @@ export class Pseudo {
       select: this.select,
       valid: this.valid
     };
-  }
+  };
 }
