@@ -8,8 +8,11 @@ export class Style {
   }
 
   methods = () => {
-    return {
-      ...new Border(this)
+    const obj = {
+      props: this.props,
+      ...(new Border(this).methods())
     };
+    
+    return obj;
   };
 }

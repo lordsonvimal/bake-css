@@ -1,17 +1,9 @@
 // All the global tokens goes here
 // Token are names and their values. This should be compiled into classes
 
-export const GLOBAL_BORDER = "0px";
-
-export const BORDERS = {
-  1: "1px",
-  3: "3px",
-  5: "5px",
-  "50p": "50%"
-};
-
 // Note that gap property doesn't support "auto"
 export const SPACES = {
+  2: "2px",
   4: "4px",
   8: "8px",
   16: "16px",
