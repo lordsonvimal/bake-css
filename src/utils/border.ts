@@ -27,21 +27,22 @@ type BorderRadius = keyof typeof BORDER_RADIUS;
 type BorderStyle = keyof typeof BORDER_STYLES;
 type BorderColor = keyof typeof COLORS_KEY_VAL;
 type BorderWidthColor = `${BorderWidth}s${BorderColor}`;
-type BorderVal = Record<BorderWidthColor | "n", string>;
+// type BorderVal = Record<BorderWidthColor | "n", string>;
 
-function getBorders() {
-  const borders: Record<string, string> = {
-    n: "none"
-  };
-  for (const borderWidth in BORDER_WIDTHS) {
-    for (let borderColor in COLORS_KEY_VAL) {
-      borders[`${borderWidth}s${borderColor}` as BorderWidthColor] = `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
-    }
-  }
-  return borders as BorderVal;
-}
+// function getBorders() {
+//   const borders: Record<string, string> = {
+//     n: "none"
+//   };
+//   for (const borderWidth in BORDER_WIDTHS) {
+//     for (let borderColor in COLORS_KEY_VAL) {
+//       borders[`${borderWidth}s${borderColor}` as BorderWidthColor] = `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
+//     }
+//   }
+//   return borders as BorderVal;
+// }
 
-const BORDERS = getBorders();
+// TODO: Handle the values
+// const BORDERS = getBorders();
 
 export class Border {
   style: Style;
