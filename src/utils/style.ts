@@ -47,7 +47,10 @@ export class Style {
 
   methods = () => {
     return {
-      bake: () => this.setCurrentProp(),
+      bake: () => {
+        this.setCurrentProp();
+        return this.bake.methods();
+      },
       style: this.style,
       ...this.border.methods()
     };

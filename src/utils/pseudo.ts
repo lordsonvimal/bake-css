@@ -30,6 +30,7 @@
 // :target	#news:target	Selects the current active #news element (clicked on a URL containing that anchor name)
 // :valid	input:valid	Selects all <input> elements with a valid value
 // :visited	a:visited	Selects all visited links
+// :has
 
 import { Bake } from "./bake";
 
