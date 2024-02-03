@@ -32,15 +32,21 @@ export const MARGIN_PROPS = {
 };
 
 export const BORDER_PROPS = {
-  left: "bl",
-  top: "bt",
+  left: "l",
+  top: "t",
+  right: "r",
+  bottom: "b",
+  radius: "rs",
+  color: "c",
+  style: "s",
+  width: "w"
 };
 
 // const ALIGN_NAME = "a";
 // const ANIMATION_NAME = "an";
 // const BACKFACE_NAME = "bf";
 // const BACKGROUND_NAME = "bg";
-// const BORDER_NAME = "b";
+export const BORDER_NAME = "b";
 // const BOTTOM_NAME = "bot";
 // const BOX_NAME = "box";
 // const CAPTION_NAME = "cn";
@@ -87,7 +93,6 @@ export const BORDER_PROPS = {
 // const WIDTH_NAME = "w";
 // const WORD_NAME = "wo";
 // const Z_NAME = "z";
-
 
 // align-content
 // align-items

@@ -1,5 +1,6 @@
 import { COLORS_KEY_VAL } from "../config/color";
 import { Bake } from "./bake";
+import { BORDER_NAME, BORDER_PROPS } from "../config/token";
 
 const BORDER_WIDTHS = {
   "0": "0px",
@@ -27,73 +28,96 @@ type BorderRadius = keyof typeof BORDER_RADIUS;
 type BorderStyle = keyof typeof BORDER_STYLES;
 type BorderColor = keyof typeof COLORS_KEY_VAL;
 type BorderWidthColor = `${BorderWidth}s${BorderColor}`;
-// type BorderVal = Record<BorderWidthColor | "n", string>;
+type BorderVal = Record<BorderWidthColor | "n", string>;
 
-// function getBorders() {
-//   const borders: Record<string, string> = {
-//     n: "none"
-//   };
-//   for (const borderWidth in BORDER_WIDTHS) {
-//     for (let borderColor in COLORS_KEY_VAL) {
-//       borders[`${borderWidth}s${borderColor}` as BorderWidthColor] =
-//         `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
-//     }
-//   }
-//   return borders as BorderVal;
-// }
+function getBorders() {
+  const borders: Record<string, string> = {
+    n: "none"
+  };
+  for (const borderWidth in BORDER_WIDTHS) {
+    for (let borderColor in COLORS_KEY_VAL) {
+      borders[`${borderWidth}s${borderColor}` as BorderWidthColor] =
+        `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
+    }
+  }
+  return borders as BorderVal;
+}
 
-// TODO: Handle the values
-// const BORDERS = getBorders();
+const BORDERS = getBorders();
 
 export class Border {
   bake: Bake;
+  classes: Record<string, string>;
 
   constructor(bake: Bake) {
     this.bake = bake;
+    this.classes = {};
   }
 
-  borderTop = (bt: BorderWidthColor) => {
-    this.bake.style.mutateProp("borderTop", bt);
+  classNames = () => {
+    return Object.keys(this.classes).join(" ");
+  };
+
+  borderTop = (val: BorderWidthColor) => {
+    const className = BORDER_NAME + BORDER_PROPS.top + val;
+    this.bake.style.mutateProp("borderTop", BORDERS[val]);
+    this.classes[className] = BORDERS[val];
     return this.bake.methods();
   };
 
-  borderRight = (br: BorderWidthColor) => {
-    this.bake.style.mutateProp("borderRight", br);
+  borderRight = (val: BorderWidthColor) => {
+    const className = BORDER_NAME + BORDER_PROPS.right + val;
+    this.bake.style.mutateProp("borderRight", BORDERS[val]);
+    this.classes[className] = BORDERS[val];
     return this.bake.methods();
   };
 
-  borderBottom = (bb: BorderWidthColor) => {
-    this.bake.style.mutateProp("borderBottom", bb);
+  borderBottom = (val: BorderWidthColor) => {
+    const className = BORDER_NAME + BORDER_PROPS.bottom + val;
+    this.bake.style.mutateProp("borderBottom", BORDERS[val]);
+    this.classes[className] = BORDERS[val];
     return this.bake.methods();
   };
 
-  borderLeft = (bl: BorderWidthColor) => {
-    this.bake.style.mutateProp("borderLeft", bl);
+  borderLeft = (val: BorderWidthColor) => {
+    const className = BORDER_NAME + BORDER_PROPS.left + val;
+    this.bake.style.mutateProp("borderLeft", BORDERS[val]);
+    this.classes[className] = BORDERS[val];
     return this.bake.methods();
   };
 
-  borderWidth = (bw: BorderWidth) => {
-    this.bake.style.mutateProp("borderWidth", bw);
+  borderWidth = (val: BorderWidth) => {
+    const className = BORDER_NAME + BORDER_PROPS.width + val;
+    this.bake.style.mutateProp("borderWidth", BORDER_WIDTHS[val]);
+    this.classes[className] = BORDER_WIDTHS[val];
     return this.bake.methods();
   };
 
-  borderRadius = (br: BorderRadius) => {
-    this.bake.style.mutateProp("borderRadius", br);
+  borderRadius = (val: BorderRadius) => {
+    const className = BORDER_NAME + BORDER_PROPS.radius + val;
+    this.bake.style.mutateProp("borderRadius", BORDER_RADIUS[val]);
+    this.classes[className] = BORDER_RADIUS[val];
     return this.bake.methods();
   };
 
-  borderColor = (bc: BorderColor) => {
-    this.bake.style.mutateProp("borderColor", bc);
+  borderColor = (val: BorderColor) => {
+    const className = BORDER_NAME + BORDER_PROPS.color + val;
+    this.bake.style.mutateProp("borderColor", COLORS_KEY_VAL[val]);
+    this.classes[className] = COLORS_KEY_VAL[val];
     return this.bake.methods();
   };
 
-  borderStyle = (bs: BorderStyle) => {
-    this.bake.style.mutateProp("borderStyle", bs);
+  borderStyle = (val: BorderStyle) => {
+    const className = BORDER_NAME + BORDER_PROPS.style + val;
+    this.bake.style.mutateProp("borderStyle", BORDER_STYLES[val]);
+    this.classes[className] = BORDER_STYLES[val];
     return this.bake.methods();
   };
 
-  border = (b: BorderWidthColor) => {
-    this.bake.style.mutateProp("border", b);
+  border = (val: BorderWidthColor) => {
+    const className = BORDER_NAME + val;
+    this.bake.style.mutateProp("border", BORDERS[val]);
+    this.classes[className] = BORDERS[val];
     return this.bake.methods();
   };
 

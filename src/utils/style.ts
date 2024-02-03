@@ -45,12 +45,17 @@ export class Style {
     return { ...this.props.default, ...this.props.pseudo };
   };
 
+  class = () => {
+    return this.border.classNames();
+  };
+
   methods = () => {
     return {
       bake: () => {
         this.setCurrentProp();
         return this.bake.methods();
       },
+      class: this.class,
       style: this.style,
       ...this.border.methods()
     };
