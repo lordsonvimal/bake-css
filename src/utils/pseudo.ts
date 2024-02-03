@@ -33,6 +33,7 @@
 // :has
 
 import { Bake } from "./bake";
+import { Style } from "./style";
 
 type PseudoSelector =
   | ":select"
@@ -48,16 +49,33 @@ type PseudoSelector =
   | ":required"
   | ":optional";
 
+type Selectors = Record<PseudoSelector, Pseudo>;
+
 // Use strongly typed
 export class Pseudo {
   bake: Bake;
-  constructor(bake: Bake) {
+  selector: PseudoSelector | null;
+  style: Style;
+
+  static selectors: Selectors = {} as Selectors;
+
+  constructor(bake: Bake, selector: PseudoSelector | null) {
     this.bake = bake;
+    this.selector = selector;
+    this.style = new Style(bake, this);
   }
 
+  static getStyles = () => {
+    for (const key in Pseudo.selectors) {
+      const pseudo = Pseudo.selectors[key as PseudoSelector];
+      console.log(pseudo.selector, pseudo.style.class());
+    }
+  };
+
   pseudo = (selector: PseudoSelector) => {
-    this.bake.style.setCurrentProp(selector);
-    return this.bake.methods();
+    if (Pseudo.selectors[selector]) return Pseudo.selectors[selector].style.methods();
+    Pseudo.selectors[selector] = new Pseudo(this.bake, selector);
+    return Pseudo.selectors[selector].style.methods();
   };
 
   select = () => {

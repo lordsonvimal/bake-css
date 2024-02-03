@@ -8,8 +8,8 @@ export class Bake {
 
   constructor(className: string) {
     this.className = className;
-    this.pseudo = new Pseudo(this);
-    this.style = new Style(this);
+    this.pseudo = new Pseudo(this, null);
+    this.style = new Style(this, null);
   }
 
   static new(className: string) {
@@ -17,9 +17,17 @@ export class Bake {
     return bake.methods();
   }
 
+  class = () => {
+    // Iterate through all styles, pseudo styles and create classes in style.css
+    console.log(this.style.class());
+    Pseudo.getStyles();
+    return this.style.class();
+  };
+
   methods = () => {
     return {
       className: this.className,
+      class: this.class,
       ...this.pseudo.methods(),
       ...this.style.methods()
     };
