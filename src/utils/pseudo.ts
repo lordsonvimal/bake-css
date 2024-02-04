@@ -73,8 +73,7 @@ export class Pseudo {
   };
 
   pseudo = (selector: PseudoSelector) => {
-    if (Pseudo.selectors[selector]) return Pseudo.selectors[selector].style.methods();
-    Pseudo.selectors[selector] = new Pseudo(this.bake, selector);
+    if (!Pseudo.selectors[selector]) Pseudo.selectors[selector] = new Pseudo(this.bake, selector);
     return Pseudo.selectors[selector].style.methods();
   };
 

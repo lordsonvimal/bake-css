@@ -54,66 +54,65 @@ export class Border {
     this.classes = {};
   }
 
-  classNames = () => {
+  class = () => {
     return Object.keys(this.classes).join(" ");
   };
 
-  goToParent = () => {
+  #setClass = (className: string, val: string) => {
+    this.classes[className] = val;
+  };
+
+  #getClass = (midName: string, val: string) => {
+    return `${BORDER_NAME}${midName}${val}`;
+  };
+
+  #goToParent = () => {
     return this.style.methods();
   };
 
   borderTop = (val: BorderWidthColor) => {
-    const className = BORDER_NAME + BORDER_PROPS.top + val;
-    this.classes[className] = BORDERS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.top, val), BORDERS[val]);
+    return this.#goToParent();
   };
 
   borderRight = (val: BorderWidthColor) => {
-    const className = BORDER_NAME + BORDER_PROPS.right + val;
-    this.classes[className] = BORDERS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.right, val), BORDERS[val]);
+    return this.#goToParent();
   };
 
   borderBottom = (val: BorderWidthColor) => {
-    const className = BORDER_NAME + BORDER_PROPS.bottom + val;
-    this.classes[className] = BORDERS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.bottom, val), BORDERS[val]);
+    return this.#goToParent();
   };
 
   borderLeft = (val: BorderWidthColor) => {
-    const className = BORDER_NAME + BORDER_PROPS.left + val;
-    this.classes[className] = BORDERS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.left, val), BORDERS[val]);
+    return this.#goToParent();
   };
 
   borderWidth = (val: BorderWidth) => {
-    const className = BORDER_NAME + BORDER_PROPS.width + val;
-    this.classes[className] = BORDER_WIDTHS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.width, val), BORDER_WIDTHS[val]);
+    return this.#goToParent();
   };
 
   borderRadius = (val: BorderRadius) => {
-    const className = BORDER_NAME + BORDER_PROPS.radius + val;
-    this.classes[className] = BORDER_RADIUS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.radius, val), BORDER_RADIUS[val]);
+    return this.#goToParent();
   };
 
   borderColor = (val: BorderColor) => {
-    const className = BORDER_NAME + BORDER_PROPS.color + val;
-    this.classes[className] = COLORS_KEY_VAL[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.color, val), COLORS_KEY_VAL[val]);
+    return this.#goToParent();
   };
 
   borderStyle = (val: BorderStyle) => {
-    const className = BORDER_NAME + BORDER_PROPS.style + val;
-    this.classes[className] = BORDER_STYLES[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass(BORDER_PROPS.style, val), BORDER_STYLES[val]);
+    return this.#goToParent();
   };
 
   border = (val: BorderWidthColor) => {
-    const className = BORDER_NAME + val;
-    this.classes[className] = BORDERS[val];
-    return this.goToParent();
+    this.#setClass(this.#getClass("", val), BORDERS[val]);
+    return this.#goToParent();
   };
 
   methods = () => {

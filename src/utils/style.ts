@@ -14,7 +14,7 @@ export class Style {
   }
 
   class = () => {
-    return this.border.classNames();
+    return this.border.class();
   };
 
   methods = () => {

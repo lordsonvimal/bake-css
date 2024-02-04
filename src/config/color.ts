@@ -6,12 +6,7 @@ const RED = "r";
 const GREEN = "g";
 const ORANGE = "o";
 
-export type ColorName =
-  | typeof NEUTRAL
-  | typeof BLUE
-  | typeof RED
-  | typeof GREEN
-  | typeof ORANGE;
+export type ColorName = typeof NEUTRAL | typeof BLUE | typeof RED | typeof GREEN | typeof ORANGE;
 export type ColorLevel = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 export type ColorNameAndLevel = `${ColorName}${ColorLevel}`;
 export type ColorTuple = [ColorNameAndLevel, string];
@@ -31,15 +26,15 @@ export const COLORS: Colors = {
     "9": "#030712"
   },
   [BLUE]: {
-    "1": "",
-    "2": "",
-    "3": "",
-    "4": "",
-    "5": "",
-    "6": "",
-    "7": "",
-    "8": "",
-    "9": "#1966c8"
+    "1": "#bfdbfe",
+    "2": "#93c5fd",
+    "3": "#60a5fa",
+    "4": "#3b82f6",
+    "5": "#2563eb",
+    "6": "#1d4ed8",
+    "7": "#1e40af",
+    "8": "#1e3a8a",
+    "9": "#172554"
   },
   [RED]: {
     "1": "",
