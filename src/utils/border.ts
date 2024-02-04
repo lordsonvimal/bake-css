@@ -27,23 +27,25 @@ type BorderWidth = keyof typeof BORDER_WIDTHS;
 type BorderRadius = keyof typeof BORDER_RADIUS;
 type BorderStyle = keyof typeof BORDER_STYLES;
 type BorderColor = keyof typeof COLORS_KEY_VAL;
-type BorderWidthColor = `${BorderWidth}s${BorderColor}`;
-type BorderVal = Record<BorderWidthColor | "n", string>;
+type BorderShorthand = `${BorderWidth}${BorderStyle}${BorderColor}`;
+type BorderVal = Record<BorderShorthand | "n", string>;
 
-function getBorders() {
-  const borders: Record<string, string> = {
+function getBorderValues() {
+  const borders = {
     n: "none"
-  };
+  } as BorderVal;
   for (const borderWidth in BORDER_WIDTHS) {
-    for (let borderColor in COLORS_KEY_VAL) {
-      borders[`${borderWidth}s${borderColor}` as BorderWidthColor] =
-        `${BORDER_WIDTHS[borderWidth as BorderWidth]} solid ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
+    for (const borderColor in COLORS_KEY_VAL) {
+      for (const borderStyle in BORDER_STYLES) {
+        borders[`${borderWidth}${borderStyle}${borderColor}` as BorderShorthand] =
+          `${BORDER_WIDTHS[borderWidth as BorderWidth]} ${BORDER_STYLES[borderStyle as BorderStyle]} ${COLORS_KEY_VAL[borderColor as BorderColor]}`;
+      }
     }
   }
-  return borders as BorderVal;
+  return borders;
 }
 
-const BORDERS = getBorders();
+const BORDERS = getBorderValues();
 
 export class Border {
   style: Style;
@@ -70,22 +72,22 @@ export class Border {
     return this.style.methods();
   };
 
-  borderTop = (val: BorderWidthColor) => {
+  borderTop = (val: BorderShorthand) => {
     this.#setClass(this.#getClass(BORDER_PROPS.top, val), BORDERS[val]);
     return this.#goToParent();
   };
 
-  borderRight = (val: BorderWidthColor) => {
+  borderRight = (val: BorderShorthand) => {
     this.#setClass(this.#getClass(BORDER_PROPS.right, val), BORDERS[val]);
     return this.#goToParent();
   };
 
-  borderBottom = (val: BorderWidthColor) => {
+  borderBottom = (val: BorderShorthand) => {
     this.#setClass(this.#getClass(BORDER_PROPS.bottom, val), BORDERS[val]);
     return this.#goToParent();
   };
 
-  borderLeft = (val: BorderWidthColor) => {
+  borderLeft = (val: BorderShorthand) => {
     this.#setClass(this.#getClass(BORDER_PROPS.left, val), BORDERS[val]);
     return this.#goToParent();
   };
@@ -110,7 +112,7 @@ export class Border {
     return this.#goToParent();
   };
 
-  border = (val: BorderWidthColor) => {
+  border = (val: BorderShorthand) => {
     this.#setClass(this.#getClass("", val), BORDERS[val]);
     return this.#goToParent();
   };
